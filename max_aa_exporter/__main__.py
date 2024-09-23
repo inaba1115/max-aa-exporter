@@ -1,3 +1,4 @@
+import argparse
 import json
 
 from .lib import Edge, Node
@@ -5,7 +6,12 @@ from .lib import Edge, Node
 HEADER = "graph{flow:south;}"
 
 
-with open("testdata/hello.maxpat") as f:
+parser = argparse.ArgumentParser()
+parser.add_argument("-f", "--maxpat", help="file path of maxpat", required=True)
+args = parser.parse_args()
+
+
+with open(args.maxpat) as f:
     j = json.loads(f.read())
 
 

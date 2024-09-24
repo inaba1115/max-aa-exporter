@@ -12,7 +12,7 @@ class Node:
         self.text = box["box"].get("text")  # nullable
 
     def to_label(self) -> str:
-        xs = [label_table[self.maxclass], self.text]
+        xs = [label_table.get(self.maxclass, self.maxclass), self.text]
         return ":".join([x for x in xs if x is not None])
 
 
